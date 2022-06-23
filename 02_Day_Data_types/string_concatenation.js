@@ -17,3 +17,9 @@ let personInfoTwo = `I am ${fullName}. I am ${age}. I live in ${country}.` //ES6
 let personInfoThree = `I am ${fullName}. I live in ${city}, ${country}. I am a ${job}. I teach ${language}.`
 console.log(personInfoTwo)
 console.log(personInfoThree)
+
+
+// REMINDER: To create a template strings, we use two back-ticks. " " OR ' ' DOES NOT WORK
+let compareA = 2
+let compareB = 3
+console.log(`is A larger than B?: ${compareA > compareB}`)

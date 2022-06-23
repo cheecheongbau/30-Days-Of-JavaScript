@@ -4,7 +4,9 @@ console.log(nums) // [10, 2, 3]
 
 let nums = [1, 2, 3]
 let numbers = [1, 2, 3]
-console.log(nums == numbers) // false
+console.log(nums == numbers) // false 
+// | the comparison operator is comparing is Object A == Object B? they are 2 different items
+// it will pass if ObjectA == ObjectA
 
 let userOne = {
   name: 'Asabeneh',
@@ -16,15 +18,23 @@ let userTwo = {
   role: 'teaching',
   country: 'Finland'
 }
-console.log(userOne == userTwo) // false
+console.log(userOne == userTwo) // false | user1 and user2 are also 2 different objects
 
-let numbers = nums
+/* Rule of thumb, we do not compare non-primitive data types. 
+Do not compare arrays, functions, or objects. 
+Non-primitive values are referred to as reference types, 
+because they are being compared by reference instead of value. 
+Two objects are only strictly equal if they refer to the same underlying object.
+*/
+// --------------------------------------------------------
+
+numbers = nums
 console.log(nums == numbers)  // true
 
-let userOne = {
+userOne = {
 name:'Asabeneh',
 role:'teaching',
 country:'Finland'
 }
-let userTwo = userOne
+userTwo = userOne
 console.log(userOne == userTwo)  // true
