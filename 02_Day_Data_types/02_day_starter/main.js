@@ -143,3 +143,57 @@ let ex2task12search = 'because because because'
 let ex2task12searchpos = ex2task12string.search(ex2task12search)
 console.log(`#12 slice out phrase from sentence: ${ex2task12string.substring(ex2task12searchpos, ex2task12searchpos + ex2task12search.length)}`)
 
+
+const aliceExcerpt = 'The Caterpillar and Alice looked at each other';
+const regexpWithoutE = /\b[a-df-z]+\b/ig;
+console.log(aliceExcerpt.match(regexpWithoutE));
+// expected output: Array ["and", "at"]
+
+const imageDescription = 'This image has a resolution of 1440×900 pixels.';
+const regexpSize = /([0-9]+)×([0-9]+)/;
+const match = imageDescription.match(regexpSize);
+console.log(`Width: ${match[1]} / Height: ${match[2]}.`);
+// expected output: "Width: 1440 / Height: 900."
+
+
+const moneyDescription = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+const regexpcount = /\d+.(euro)/gi;
+const regexptime = /(per month)|(annual)/gi;
+const result = moneyDescription.match(regexpcount);
+const timeresult = moneyDescription.match(regexptime);
+console.log(result);
+console.log(timeresult);
+let moneyArray
+let totalincome = 0
+for( let i = 0; i < result.length; i++)
+{
+  let incomestring = result[i].substring(0, result[i].indexOf('euro'))
+  if(timeresult[i] == 'per month')
+  {
+    let temp = parseInt(incomestring) * 12
+    totalincome += temp
+    console.log(temp)
+    console.log(totalincome)
+  }
+  else
+  {
+    let temp = parseInt(incomestring)
+    totalincome += temp
+    console.log(temp)
+    console.log('annual: ' + totalincome)
+  }
+}
+console.log('final income : ' + totalincome)
+/*
+> Array ["and", "at"]
+> "Width: 1440 / Height: 900."
+> Array ["5000 euro", "10000 euro", "15000 euro"]
+> Array ["per month", "annual", "per month"]
+> 60000
+> 60000
+> 10000
+> "annual: 70000"
+> 180000
+> 250000
+> "final income : 250000"
+*/
